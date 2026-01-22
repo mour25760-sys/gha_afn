@@ -1,0 +1,12 @@
+{% extends "hotel_managment/base2.html" %}
+{% block content %}
+<div class="glass-card" style="max-width: 500px; margin: auto; text-align:center; border: 2px solid #ff000021;">
+    <h2 style="color:red;">تأكيد الحذف</h2>
+    <p>هل أنت متأكد أنك تريد حذف "{{ room_ed }}"؟ لا يمكن التراجع عن هذا الإجراء.</p>
+    <form method="post" style="margin-top:20px;">
+        {% csrf_token %}
+        <button type="submit" class="btn-submit" style="background:red;">نعم، قم بالحذف</button>
+        <a href="{% url 'roomlist' %}" style="display:block; margin-top:15px; text-decoration:none; color:var(--evergreen);">تراجع</a>
+    </form>
+</div>
+{% endblock %}

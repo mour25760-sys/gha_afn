@@ -1,0 +1,44 @@
+{% extends 'hotel_managment/base2.html' %}
+
+{% block content %}
+<div class="glass-card" style="max-width: 600px; margin: 40px auto; padding: 30px; border-radius: 15px;">
+    <h2 style="color: var(--evergreen); text-align: center; margin-bottom: 25px;">إضافة غرفة جديدة</h2>
+   
+     <form method="POST">
+        {% csrf_token %}
+       
+       <!-- <div style="margin-bottom: 20px;">
+            <label style="display: block; margin-bottom: 8px; color: var(--evergreen); font-weight: bold;">رقم الغرفة:</label>
+            <input type="text" name="number" placeholder="مثلاً: 101" required
+                   style="width: 100%; padding: 12px; border: 1px solid var(--peony); border-radius: 10px; background: rgba(255,255,255,0.5);">
+        </div> -->
+       
+        <!-- <div style="margin-bottom: 20px;">
+            <label style="display: block; margin-bottom: 8px; color: var(--evergreen); font-weight: bold;">نوع الغرفة:</label>
+            <select name="room_type" required
+                    style="width: 100%; padding: 12px; border: 1px solid var(--peony); border-radius: 10px; background: rgba(255,255,255,0.5);">
+                <option value="Single">مفردة (Single)</option>
+                <option value="Double">مزدوجة (Double)</option>
+                <option value="Suite">جناح (Suite)</option>
+            </select>
+        </div>
+       
+        <div style="margin-bottom: 25px;">
+            <label style="display: block; margin-bottom: 8px; color: var(--evergreen); font-weight: bold;">السعر لليلة:</label>
+            <input type="number" name="price" placeholder="0.00" step="0.01" required
+                   style="width: 100%; padding: 12px; border: 1px solid var(--peony); border-radius: 10px; background: rgba(255,255,255,0.5);">
+        </div> -->
+
+        {{form}}
+       
+        <div style="display: flex; gap: 15px; justify-content: center;">
+            <button type="submit" class="btn-submit" style="background: var(--evergreen); color: white; padding: 12px 30px; border: none; border-radius: 8px; cursor: pointer;">
+                حفظ الغرفة
+            </button>
+            <a href="{% url 'roomlist' %}" style="background: #95a5a6; color: white; padding: 12px 30px; border-radius: 8px; text-decoration: none;">
+                إلغاء
+            </a>
+        </div>
+    </form>
+</div>
+{% endblock %}

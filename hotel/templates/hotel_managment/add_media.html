@@ -1,0 +1,22 @@
+{% extends 'hotel_managment/base2.html' %}
+
+{% block content %}
+<div class="glass-card" style="max-width: 600px; margin: 40px auto; padding: 30px; border-radius: 15px;">
+    <h2 style="color: var(--evergreen); text-align: center; margin-bottom: 25px;">إضافة صورة جديدة</h2>
+   
+     <form method="POST">
+        {% csrf_token %}
+
+        {{form}}
+       
+        <div style="display: flex; gap: 15px; justify-content: center;">
+            <button type="submit" class="btn-submit" style="background: var(--evergreen); color: white; padding: 12px 30px; border: none; border-radius: 8px; cursor: pointer;">
+                حفظ البيانات
+            </button>
+            <a href="{% url 'media_list' %}" style="background: #95a5a6; color: white; padding: 12px 30px; border-radius: 8px; text-decoration: none;">
+                إلغاء
+            </a>
+        </div>
+    </form>
+</div>
+{% endblock %}

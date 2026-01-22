@@ -1,0 +1,21 @@
+{% extends 'hotel_managment/base2.html' %}
+
+{% block content %}
+<div class="glass-card" style="max-width: 700px; margin: 30px auto; padding: 30px; border-radius: 15px;">
+    <h2 style="color: var(--evergreen); text-align: center; margin-bottom: 25px;">إنشاء حجز جديد</h2>
+   
+    <form method="POST">
+        {% csrf_token %}
+       
+       {{form}}
+        <div style="display: flex; gap: 15px; justify-content: center;">
+            <button type="submit" class="btn-submit" style="background: var(--evergreen); color: white; padding: 12px 40px; border: none; border-radius: 8px; cursor: pointer; font-size: 16px;">
+                تأكيد الحجز
+            </button>
+            <a href="{% url 'bookpage' %}" style="background: #95a5a6; color: white; padding: 12px 40px; border-radius: 8px; text-decoration: none; font-size: 16px;">
+                إلغاء
+            </a>
+        </div>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}فندق البستان - الرئيسية{% endblock %}
+
+{% block content %}
+<style>
+    /* تنسيق خاص بالصفحة الرئيسية لدمج النص مع الصورة الخلفية */
+    .hero-container {
+        position: relative;
+        width: 100%;
+        height: 85vh; /* طول مناسب ليظهر جمال التصميم */
+        border-radius: 35px;
+        overflow: hidden;
+        box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+        background: url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1500') no-repeat center center/cover;
+    }
+
+    /* طبقة التعتيم والزجاج (Glassmorphism) */
+    .hero-overlay {
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: rgba(0, 0, 0, 0.4); /* تعتيم خفيف لتوضيح النص */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+    }
+
+    .hero-content {
+        background: rgba(255, 255, 255, 0.15); /* شفافية عالية */
+        backdrop-filter: blur(15px); /* تأثير الضبابية */
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        padding: 60px 40px;
+        border-radius: 30px;
+        text-align: center;
+        max-width: 800px;
+        color: white;
+        animation: fadeInDown 1s ease-out;
+    }
+
+    .hero-content h1 {
+        font-size: 3.5rem;
+        font-weight: 800;
+        margin-bottom: 20px;
+        text-shadow: 2px 4px 10px rgba(0,0,0,0.3);
+    }
+
+    .hero-content p {
+        font-size: 1.4rem;
+        margin-bottom: 30px;
+        line-height: 1.6;
+        color: var(--mist);
+    }
+
+    .cta-button {
+        background: var(--sage);
+        color: white;
+        padding: 18px 45px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-size: 1.2rem;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        display: inline-block;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+
+    .cta-button:hover {
+        background: var(--evergreen);
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+    }
+
+    @keyframes fadeInDown {
+        from { opacity: 0; transform: translateY(-30px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* قسم العروض السريعة تحت الهيرو */
+    .quick-offers {
+        margin-top: 50px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+    }
+
+    .offer-card {
+        background: white;
+        border-radius: 20px;
+        padding: 25px;
+        border-right: 5px solid var(--sage);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+        transition: 0.3s;
+    }
+
+    .offer-card:hover { transform: scale(1.03); }
+</style>
+
+<div class="hero-container">
+    <div class="hero-overlay">
+        <div class="hero-content">
+            <h1>أينما تكون الرفاهية نكون نحن</h1>
+            <p>مرحباً بك في فندق البستان حيث تجتمع الفخامة الفندقية مع أرقى خدمات الأمان البنكي لتجربة لا تُنسى.</p>
+            <a href="{% url 'gallerypage' %}" class="cta-button">أكتشف فندقنا الفاخرة <i class="fas fa-arrow-left"></i></a>
+        </div>
+    </div>
+</div>
+
+<div class="quick-offers">
+    <div class="offer-card">
+        <h3 style="color:var(--evergreen)">خصومات الشتاء</h3>
+        <p style="color:var(--sage)">احجز جناحك الآن واحصل على خصم 20% على خدماتنا البنكية.</p>
+    </div>
+    <div class="offer-card" style="border-right-color: var(--peony);">
+        <h3 style="color:var(--evergreen)">خدمة كبار الشخصيات</h3>
+        <p style="color:var(--sage)">استمتع بخصوصية تامة مع تأمين معاملاتك المالية فورياً.</p>
+    </div>
+</div>
+
+{% endblock content %}

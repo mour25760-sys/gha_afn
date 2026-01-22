@@ -1,0 +1,52 @@
+<aside class="sidebar">
+        <a href="{% url 'homepage' %}" class="sidebar-item active">
+            <i class="fas fa-home"></i> <span>الرئيسية</span>
+        </a>
+        <a href="{% url 'gallerypage' %}" class="sidebar-item">
+            <i class="fas fa-images"></i> <span>معرض الصور</span>
+        </a>
+        <a href="{% url 'newbooking' %}" class="sidebar-item">
+            <i class="fas fa-plus-circle"></i> <span>حجز جديد</span>
+        </a>
+        <a href="{% url 'bookpage' %}" class="sidebar-item">
+            <i class="fas fa-calendar-check"></i> <span>حجوزاتي</span>
+        </a>
+        <a href="{% url 'employee_add' %}" class="sidebar-item">
+            <i class="fas fa-user-shield"></i> <span>إضافة الموظفين</span>
+        </a>
+        <a href="{% url 'employeelist' %}" class="sidebar-item">
+            <i class="fas fa-user-shield"></i> <span>قائمة الموظفين</span>
+        </a>
+        <a href="{% url 'room_add' %}" class="sidebar-item">
+            <i class="fas fa-user-shield"></i> <span>إضافة الغرف</span>
+        </a>
+        <a href="{% url 'roomlist' %}" class="sidebar-item">
+            <i class="fas fa-user-shield"></i> <span>قائمة الغرف</span>
+        </a>
+        <a href="{% url 'add_media' %}" class="sidebar-item">
+            <i class="fas fa-user-shield"></i> <span>إضافة صور</span>
+        </a>
+        <a href="{% url 'media_list' %}" class="sidebar-item">
+            <i class="fas fa-user-shield"></i> <span>قائمة الصور</span>
+        </a>
+
+           <a href="{% url 'guest_add' %}" class="sidebar-item">
+            <i class="fas fa-images"></i> <span>إضافة نزيل</span>
+        </a>
+
+        <a href="{% url 'guest_list' %}" class="sidebar-item">
+            <i class="fas fa-images"></i> <span>قائمة النزلاء</span>
+        </a>
+        
+        </a>
+        <a href="{% url 'register' %}" class="sidebar-item">
+            <i class="fas fa-user-shield"></i> <span>register</span>
+        </a>
+        
+
+       <div style="margin-top: 50px; border-top: 1px solid var(--peony); padding-top: 10px;">
+            <a href="{% url 'login' %}" class="sidebar-item" style="color: #e74c3c;">
+                <i class="fas fa-sign-out-alt" style="color: #e74c3c;"></i> <span>تسجيل الخروج</span>
+        </a>
+        </div>
+    </aside>

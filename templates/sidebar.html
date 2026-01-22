@@ -1,0 +1,23 @@
+<aside class="sidebar">
+        <a href="{% url 'homepage' %}" class="sidebar-item active">
+            <i class="fas fa-home"></i> <span>الرئيسية</span>
+        </a>
+        <a href="{% url 'gallerypage' %}" class="sidebar-item">
+            <i class="fas fa-images"></i> <span>معرض الصور</span>
+        </a>
+
+        <a href="{% url 'hellow_page' %}" class="sidebar-item">
+            <i class="fas fa-images"></i> <span>إدارة الفندق</span>
+        </a>
+        
+         <a href="{% url 'register' %}" class="sidebar-item">
+            <i class="fas fa-user-shield"></i> <span>register</span>
+        </a>
+        
+
+       <div style="margin-top: 50px; border-top: 1px solid var(--peony); padding-top: 10px;">
+            <a href="{% url 'login' %}" class="sidebar-item" style="color: #e74c3c;">
+                <i class="fas fa-sign-out-alt" style="color: #e74c3c;"></i> <span>تسجيل الخروج</span>
+        </a>
+        </div>
+    </aside>

@@ -1,0 +1,38 @@
+{% extends 'hotel_managment/base2.html' %}
+{% block content %}
+<div class="glass-card">
+    <div style="display:flex; justify-content:space-between; align-items:center;">
+        <h2><i class="fas fa-list"></i> سجل الحجوزات</h2>
+        <a href="{% url 'newbooking' %}" class="btn-submit" style="width:auto; padding:10px 20px; text-decoration:none;">+ حجز جديد</a>
+    </div>
+
+    <table style="width:100%; margin-top:20px; border-collapse: collapse;">
+        <thead>
+            <tr style="background:var(--peony); color:var(--evergreen);">
+                <th style="padding:12px;">النزيل</th>
+                <th>رقم الغرفة</th>
+                <th>تاريخ الدخول</th>
+                <th>تاريخ الخروج</th>
+                <th>العمليات</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for booking in bookings %}
+            <tr style="border-bottom:1px solid var(--peony); text-align:center;">
+                <td style="padding:12px;">{{ booking.guest.name }}</td>
+                <td>{{ booking.room.number }}</td>
+                <td>{{ booking.check_in }}</td>
+                <td>{{ booking.check_out }}</td>
+                <td>
+            <a href="{% url 'editbookpage' booking.id %}" style="display: inline-block; padding: 6px 10px; border: 1px solid #555;
+            border-radius: 4px; text-decoration: none; color: #000; font-size: 14px; margin-left: 5px;"> تعديل </a>
+
+            <a href="{% url 'booking_delete' booking.id %}" style="display: inline-block; padding: 6px 10px; border: 1px solid #900; 
+            border-radius: 4px; text-decoration: none; color: #900; font-size: 14px; margin-left: 5px;"> حذف </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

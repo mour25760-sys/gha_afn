@@ -1,0 +1,23 @@
+{% extends 'hotel_managment/base2.html' %}
+
+{% block content %}
+<div class="glass-card" style="max-width: 600px; margin: 40px auto; padding: 30px; border-radius: 15px;">
+   
+     <form method="POST">
+        {% csrf_token %} 
+       
+       {{form}}
+        <div style="display: flex; gap: 15px; justify-content: center;">
+            <button type="submit" class="btn-submit"
+                    style="background: var(--evergreen); color: white; padding: 12px 30px; border: none; border-radius: 8px; cursor: pointer; font-size: 16px;">
+                حفظ التعديل
+            </button>
+           
+            <a href="{% url 'employeelist' %}"
+               style="background: #e74c3c; color: white; padding: 12px 30px; border-radius: 8px; text-decoration: none; font-size: 16px;">
+                إلغاء
+            </a>
+        </div>
+    </form>
+</div>
+{% endblock %}

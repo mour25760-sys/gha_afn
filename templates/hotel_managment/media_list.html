@@ -1,0 +1,36 @@
+{% extends "hotel_managment/base2.html" %}
+
+{% block content %}
+<div class="glass-card">
+    <div style="display:flex; justify-content:space-between; align-items:center;">
+        <h2>قائمة الصور</h2>
+        <a href="{% url 'add_media' %}" class="btn-submit" style="width:auto; padding:10px 20px; text-decoration:none;">+ إضافة صور</a>
+    </div>
+    <table style="width:100%; margin-top:20px; border-collapse: collapse;">
+        <thead>
+            <tr style="background:var(--peony); color:var(--evergreen);">
+                <th style="padding:12px;">عنوان الصورة</th>
+                <th>رابط الصورة</th>
+                <th>رابط الفيديو</th>
+                <th>العمليات</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for gallery in gallerys %}
+            <tr style="border-bottom:1px solid var(--peony); text-align:center;">
+                <td style="padding:12px;">{{ gallery.title }}</td>
+                <td>{{ gallery.image_url }}</td>
+                <td>{{ gallery.video_url }}</td>
+                <td>
+            <a href="{% url 'edit_media' gallery.id %}" style="display: inline-block; padding: 6px 10px; border: 1px solid #555;
+            border-radius: 4px; text-decoration: none; color: #000; font-size: 14px; margin-left: 5px;"> تعديل </a>
+
+            <a href="{% url 'delete_media' gallery.id %}" style="display: inline-block; padding: 6px 10px; border: 1px solid #900; 
+            border-radius: 4px; text-decoration: none; color: #900; font-size: 14px; margin-left: 5px;"> حذف </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

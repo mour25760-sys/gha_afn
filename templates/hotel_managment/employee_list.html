@@ -1,0 +1,42 @@
+{% extends "hotel_managment/base2.html" %}
+{% block content %}
+<!-- <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-axesome/5.15.4/css/all.min.css">
+</head> -->
+<div class="glass-card">
+    <div style="display:flex; justify-content:space-between; align-items:center;">
+        <h2>قائمة الموظفين</h2>
+        <a href="{% url 'employee_add' %}" class="btn-submit" style="width:auto; padding:10px 20px; text-decoration:none;">+ إضافة موظف</a>
+    </div>
+    
+    <div style="display: flex; gap: 10px; align-items: center;">
+</div>
+    <table style="width:100%; margin-top:20px; border-collapse: collapse;">
+        <thead>
+            <tr style="background:var(--peony); color:var(--evergreen);">
+                <th style="padding:12px;">اسم الموظف</th>
+                <th>الرقم</th>
+                <th>الوظيفة</th>
+                <th>الراتب</th>
+                <th>العمليات</th> 
+            </tr>
+        </thead>
+        <tbody>
+            {% for employee in employees %}
+            <tr style="border-bottom:1px solid var(--peony); text-align:center;">
+                <td style="padding:12px;">{{ employee.name }}</td>
+                <td>{{ employee.phone }}</td>
+                <td>{{ employee.job_title }}</td>
+                <td>{{ employee.salary }}</td>
+                <td style="text-align: center;">
+    <a href="{% url 'employee_edit' employee.id %}" style="display: inline-block; padding: 6px 10px; border: 1px solid #555;
+    border-radius: 4px; text-decoration: none; color: #000; font-size: 14px; margin-left: 5px;"> تعديل </a>
+
+    <a href="{% url 'employee_delete' employee.id %}" style="display: inline-block; padding: 6px 10px; border: 1px solid #900; 
+    border-radius: 4px; text-decoration: none; color: #900; font-size: 14px; margin-left: 5px;"> حذف </a>
+            {% endfor %}
+
+        </tbody>
+    </table>
+</div>
+{% endblock %}
